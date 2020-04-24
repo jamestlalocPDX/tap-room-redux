@@ -12,6 +12,7 @@ function Menu(props){
         whenKegClicked={props.onKegSelection}
         name={keg.name}
         brand={keg.brand}
+        description={keg.description}
         price={keg.price}
         abv={keg.abv}
         id={keg.id}
