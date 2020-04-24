@@ -22,7 +22,7 @@ function Menu(props){
 }
 
 Menu.PropTypes = {
-  menu: PropTypes.array
+  menu: PropTypes.array,
   onKegSelection: PropTypes.func
 };
 
