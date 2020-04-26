@@ -21,7 +21,7 @@ function Menu(props){
   );
 }
 
-Menu.PropTypes = {
+Menu.propTypes = {
   menu: PropTypes.array,
   onKegSelection: PropTypes.func
 };
