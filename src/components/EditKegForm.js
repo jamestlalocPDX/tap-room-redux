@@ -23,4 +23,4 @@ EditNewKegForm.propTypes = {
   onEditKeg: PropTypes.func
 };
 
-export default EditKegForm;
+export default EditNewKegForm;
