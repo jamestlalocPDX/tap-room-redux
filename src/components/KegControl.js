@@ -1,5 +1,6 @@
 import React from 'react';
 import NewKegForm from './NewKegForm';
+import EditKegForm from './EditKegForm';
 import Menu from './Menu';
 
 class KegControl extends React.Component {
@@ -25,9 +26,15 @@ class KegControl extends React.Component {
     this.setState({selectedKeg: selectedKeg});
   }
 
-  handleEditClick = () => {
-    console.log("handleEditClick reached!");
-    this.setState({editing: true});
+  handleEditingKegInList = (kegToEdit) => {
+    const editedMasterMenu = this.state.masterMenu
+      .filter(keg => keg.id !== this.state.selectedKeg.id)
+      .concat(kegToEdit);
+    this.setState({
+        masterMenu: editedMasterMenu,
+        editing: false,
+        selectedTicket: null
+      });
   }
 
   handleDeletingKeg = (id) => {
