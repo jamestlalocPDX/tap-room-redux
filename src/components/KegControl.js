@@ -9,7 +9,8 @@ class KegControl extends React.Component {
     this.state = {
       formVisibleOnPage: false,
       masterMenu: [],
-      selectedKeg: null
+      selectedKeg: null,
+      editing: false
     };
   }
   
@@ -22,6 +23,11 @@ class KegControl extends React.Component {
   handleChangingSelectedKeg = (id) => {
     const selectedKeg = this.state.masterMenu.filter(keg => keg.id === id)[0];
     this.setState({selectedKeg: selectedKeg});
+  }
+
+  handleEditClick = () => {
+    console.log("handleEditClick reached!");
+    this.setState({editing: true});
   }
 
   handleDeletingKeg = (id) => {
@@ -50,7 +56,10 @@ class KegControl extends React.Component {
     let buttonText = null;
     
     if (this.state.selectedKeg != null) {
-        currentlyVisibleState = <KegDetail keg = {this.state.selectedKeg} onClickingDelete = {this.handleDeletingKeg} />
+        currentlyVisibleState = <KegDetail 
+        keg = {this.state.selectedKeg} 
+        onClickingDelete = {this.handleDeletingKeg}
+        onClickingEdit = {this.handleEditClick} />
         buttonText = "Return to Menu";
     } else if (this.state.formVisibleOnPage) {
         currentlyVisibleState = <NewKegForm onNewKegCreation={this.handleAddingNewKegToMenu} />
