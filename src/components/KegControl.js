@@ -80,7 +80,7 @@ class KegControl extends React.Component {
         onNewKegCreation={this.handleAddingNewKegToMenu} />;
         buttonText = "Return to Menu";
     } else {
-      currentlyVisibleState = <Menu Menu = {this.state.masterMenu} onKegSelection = {this.handleChangingSelectedKeg} />;
+      currentlyVisibleState = <Menu menu = {this.state.masterMenu} onKegSelection = {this.handleChangingSelectedKeg} />;
       buttonText = "Add Keg!";
     }
     return (
