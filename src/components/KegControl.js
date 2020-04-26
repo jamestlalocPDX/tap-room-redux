@@ -39,7 +39,7 @@ class KegControl extends React.Component {
   }
 
   handleDeletingKeg = (id) => {
-    const newMasterMenu = this.state.masterMenufilter(keg => keg.id !== id);
+    const newMasterMenu = this.state.masterMenu.filter(keg => keg.id !== id);
     this.setState({
       masterMenu: newMasterMenu,
       selectedKeg: null
