@@ -16,7 +16,7 @@ function Menu(props){
         price={keg.price}
         abv={keg.abv}
         id={keg.id}
-        key={index} />)}
+        key={keg.id} />)}
     </React.Fragment>
   );
 }
