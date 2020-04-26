@@ -67,7 +67,7 @@ class KegControl extends React.Component {
     if (this.state.editing ) {      
       currentlyVisibleState = <EditKegForm 
       keg = {this.state.selectedKeg} 
-      onEditTicket = {this.handleEditingKegInList} />;
+      onEditKeg = {this.handleEditingKegInList} />;
       buttonText = "Return to Menu";
     } else if (this.state.selectedKeg != null) {
         currentlyVisibleState = <KegDetail 
@@ -80,7 +80,9 @@ class KegControl extends React.Component {
         onNewKegCreation={this.handleAddingNewKegToMenu} />;
         buttonText = "Return to Menu";
     } else {
-        currentlyVisibleState = <Menu menu = {this.state.masterMenu} onKegSelection = {this.handleChangingSelectedKeg} />;
+        currentlyVisibleState = <Menu 
+        menu = {this.state.masterMenu} 
+        onKegSelection = {this.handleChangingSelectedKeg} />;
         buttonText = "Add Keg!";
     }
     return (
