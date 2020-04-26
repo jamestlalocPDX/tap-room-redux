@@ -67,7 +67,7 @@ class KegControl extends React.Component {
     if (this.state.editing ) {      
       currentlyVisibleState = <EditKegForm 
       keg = {this.state.selectedKeg} 
-      onEditTicket = {this.handleEditingTicketInList} />;
+      onEditTicket = {this.handleEditingKegInList} />;
       buttonText = "Return to Menu";
     } else if (this.state.selectedKeg != null) {
         currentlyVisibleState = <KegDetail 
