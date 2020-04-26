@@ -1,4 +1,5 @@
 import React from 'react';
+import KegDetail from './KegDetail';
 import NewKegForm from './NewKegForm';
 import EditKegForm from './EditKegForm';
 import Menu from './Menu';
@@ -49,7 +50,8 @@ class KegControl extends React.Component {
     if (this.state.selectedKeg != null) {
       this.setState({
         formVisibleOnPage: false,
-        selectedKeg: null
+        selectedKeg: null,
+        editing: false
       });
     } else {
       this.setState(prevState => ({
@@ -62,14 +64,20 @@ class KegControl extends React.Component {
     let currentlyVisibleState = null;
     let buttonText = null;
     
-    if (this.state.selectedKeg != null) {
+    if (this.state.editing ) {      
+      currentlyVisibleState = <EditKegForm 
+      keg = {this.state.selectedKeg} 
+      onEditTicket = {this.handleEditingTicketInList} />;
+      buttonText = "Return to Menu";
+    } else if (this.state.selectedKeg != null) {
         currentlyVisibleState = <KegDetail 
         keg = {this.state.selectedKeg} 
         onClickingDelete = {this.handleDeletingKeg}
-        onClickingEdit = {this.handleEditClick} />
+        onClickingEdit = {this.handleEditClick} />;
         buttonText = "Return to Menu";
     } else if (this.state.formVisibleOnPage) {
-        currentlyVisibleState = <NewKegForm onNewKegCreation={this.handleAddingNewKegToMenu} />
+        currentlyVisibleState = <NewKegForm 
+        onNewKegCreation={this.handleAddingNewKegToMenu} />;
         buttonText = "Return to Menu";
     } else {
       currentlyVisibleState = <Menu Menu = {this.state.masterMenu} onKegSelection = {this.handleChangingSelectedKeg} />;
@@ -83,4 +91,5 @@ class KegControl extends React.Component {
     );
   }
 }
+
 export default KegControl;
