@@ -13,8 +13,9 @@ function Menu(props){
         name={keg.name}
         brand={keg.brand}
         description={keg.description}
-        price={keg.price}
         abv={keg.abv}
+        price={keg.price}
+        pints={keg.pints}
         id={keg.id}
         key={keg.id} />)}
     </React.Fragment>

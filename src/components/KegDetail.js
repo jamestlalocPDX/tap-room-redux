@@ -6,10 +6,12 @@ function KegDetail(props){
   return (
     <React.Fragment>
       <h1>Keg Details:</h1>
-      <h3>{keg.brand} - {keg.name}</h3>
-      <p><em>{keg.description}</em></p>
-      <p><em>{keg.abv}</em></p>
-      <p><em>{keg.price}</em></p>
+      <h2>{keg.brand} presents:</h2>
+      <h3>{keg.name}</h3>
+      <p><strong>Description</strong>: <em>{keg.description}</em></p>
+      <p><strong>abv</strong>: <em>{keg.abv}</em></p>
+      <p><strong>Price</strong>: <em>{keg.price}</em></p>
+      <p><strong>Pints</strong>: <em>{keg.pints}</em></p>
       <button onClick={ props.onClickingEdit }>Update Keg</button>
       <button onClick={()=> props.onClickingDelete(keg.id) }>Delete Keg</button>
       <hr/>
