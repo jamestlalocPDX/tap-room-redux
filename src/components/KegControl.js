@@ -12,49 +12,49 @@ class KegControl extends React.Component {
       formVisibleOnPage: false,
       masterMenu: [
         {
-          name = "Manta Ray",
-          brand = "Ballast Point",
-          description = "Oh so tasty!",
-          abv = "7.8%",
-          price = "$12.99",
-          pints = 124,
-          id = 1
+          name: "Manta Ray",
+          brand: "Ballast Point",
+          description: "Oh so tasty!",
+          abv: "7.8%",
+          price: "$12.99",
+          pints: 124,
+          id: 1
         },
         {
-          name = "Pacific Wonderland",
-          brand = "Deschutes Brewery",
-          description = "So hoppy!",
-          abv = "5.5%",
-          price = "$10.99",
-          pints = 124,
-          id = 2
+          name: "Pacific Wonderland",
+          brand: "Deschutes Brewery",
+          description: "So hoppy!",
+          abv: "5.5%",
+          price: "$10.99",
+          pints: 124,
+          id: 2
         },
         {
-          name = "Pearl IPA",
-          brand = "10 Barrel",
-          description = "Citrus hops!",
-          abv = "8%",
-          price = "$13.99",
-          pints = 124,
-          id = 3
+          name: "Pearl IPA",
+          brand: "10 Barrel",
+          description: "Citrus hops!",
+          abv: "8%",
+          price: "$13.99",
+          pints: 124,
+          id: 3
         },
         {
-          name = "Starburst IPA",
-          brand = "Ecliptic Brewery",
-          description = "Damn hops!",
-          abv = "7.8%",
-          price = "$13.99",
-          pints = 124,
-          id = 4
+          name: "Starburst IPA",
+          brand: "Ecliptic Brewery",
+          description: "Damn hops!",
+          abv: "7.8%",
+          price: "$13.99",
+          pints: 124,
+          id: 4
         },
         {
-          name = "Victory at Sea",
-          brand = "Ballast Point",
-          description = "Best dark brew around!",
-          abv = "12%",
-          price = "$13.99",
-          pints = 124,
-          id = 5
+          name: "Victory at Sea",
+          brand: "Ballast Point",
+          description: "Best dark brew around!",
+          abv: "12%",
+          price: "$13.99",
+          pints: 124,
+          id: 5
         },
       ],
       selectedKeg: null,
