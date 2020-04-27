@@ -95,6 +95,20 @@ class KegControl extends React.Component {
       selectedKeg: null
     });
   }
+
+  handleTappingKeg = (id) => {
+    const newMasterMenu = this.state.masterMenu[0].pints - 1;
+    this.setState({
+      masterMenu: newMasterMenu,
+    });
+  }
+
+  handleFillingKeg = (id) => {
+    const newMasterMenu = this.state.masterMenu[0].pints + 1;
+    this.setState({
+      masterMenu: newMasterMenu,
+    });
+  }
   
   handleClick = () => {
     if (this.state.selectedKeg != null) {
@@ -122,8 +136,8 @@ class KegControl extends React.Component {
     } else if (this.state.selectedKeg != null) {
         currentlyVisibleState = <KegDetail 
         keg = {this.state.selectedKeg}
-        onClickingTap = {this.handleTappingKeg}
-        onClickingFill = {this.handleFillingKeg} 
+        // onClickingTap = {this.handleTappingKeg}
+        // onClickingFill = {this.handleFillingKeg} 
         onClickingDelete = {this.handleDeletingKeg}
         onClickingEdit = {this.handleEditClick} />;
         buttonText = "Return to Menu";

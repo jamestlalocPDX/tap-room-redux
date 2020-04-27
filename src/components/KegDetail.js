@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 
 function KegDetail(props){
-  const { keg, onClickingDelete } = props;
+  const { keg, onClickingDelete, onClickingTap, onClickingFill } = props;
   return (
     <React.Fragment>
       <hr/>
