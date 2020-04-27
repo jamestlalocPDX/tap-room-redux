@@ -24,20 +24,21 @@ Stretch goals include:
 * Add feautre that color-codes keg prices for easy readability.
 * Nicely style the application.
 
+## Specifications
+<p align="center">
+  <img src="./img/specsImage.png">
+</p> 
+
 ## **Setup/Installation**
 
 *Option One:*
 1. Open up your terminal.
 2. Navigate to the desired directory in which you want to clone this repository.
 3. Use `git clone https://github.com/jamestlalocPDX/tap-room` to clone this repository.
-4. Open the repository.
+4. Open the repository using `code tap-room` .
 5. Install all dependencies using `$ npm install` in your terminal.
 6. Use `$ npm run build` to start a package bundle.
 7. Use `$ npm run start` in your terminal for a live development server.
-8. Click a spot on the map.
-9. Enter information on your experience.
-10. Click "Enter!"
-
 
 ## Available Scripts
 
