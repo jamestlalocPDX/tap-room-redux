@@ -88,11 +88,18 @@ No known bugs at this time.
 If you have any questions, comments, or concerns, feel free to contact the content creator at examplemail@company.net 
 
 ## **Technologies used**
+
+* React 6.13.7
+
+* UUID
+
+* Git 2.23.0
+
 * Webpack
 
 * JavaScript 
 
-* Visual Studio Code
+* Visual Studio Code 1.43.1
 
 * GitBash
 
