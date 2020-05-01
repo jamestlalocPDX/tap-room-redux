@@ -2,6 +2,25 @@ import menuReducer from "../../reducers/menu-reducer";
 
 describe("menuReducer", () => {
 
+  const currentState = {
+    1: {
+      name: "Manta Ray",
+      brand: "Ballast Point",
+      description: "It's so damn good!",
+      abv: "8%",
+      price: "$12.99",
+      pints: "124",
+      id: 1 },
+    2: {
+      name: "Victory at Sea",
+      brand: "Ballast Point",
+      description: "It's delicious!",
+      abv: "10%",
+      price: "$12.99",
+      pints: "124",
+      id: 2 }
+  };
+
   let action;
   const kegData = {
     name: "Manta Ray",
@@ -39,6 +58,24 @@ describe("menuReducer", () => {
         pints: pints,
         id: id
       } 
-    })
-  })
+    });
+  });
+
+  test("Should successfully delete a keg", () => {
+    const { name, brand, description, abv, price, pints, id} = currentState;
+    action = {
+      type: "DELETE_KEG",
+      id: 1
+    };
+    expect(menuReducer(currentState, action)).toEqual({
+      2: {
+        name: "Victory at Sea",
+        brand: "Ballast Point",
+        description: "It's delicious!",
+        abv: "10%",
+        price: "$12.99",
+        pints: "124",
+        id: 2 }
+    });
+  });
 }); 
