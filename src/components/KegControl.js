@@ -11,61 +11,25 @@ class KegControl extends React.Component {
     super(props);
     this.state = {
       formVisibleOnPage: false,
-      masterMenu: [
-        {
-          name: "Manta Ray",
-          brand: "Ballast Point",
-          description: "Oh so tasty!",
-          abv: "7.8%",
-          price: "$12.99",
-          pints: 124,
-          id: 1
-        },
-        {
-          name: "Pacific Wonderland",
-          brand: "Deschutes Brewery",
-          description: "So hoppy!",
-          abv: "5.5%",
-          price: "$10.99",
-          pints: 124,
-          id: 2
-        },
-        {
-          name: "Pearl IPA",
-          brand: "10 Barrel",
-          description: "Citrus hops!",
-          abv: "8%",
-          price: "$13.99",
-          pints: 124,
-          id: 3
-        },
-        {
-          name: "Starburst IPA",
-          brand: "Ecliptic Brewery",
-          description: "Damn hops!",
-          abv: "7.8%",
-          price: "$13.99",
-          pints: 124,
-          id: 4
-        },
-        {
-          name: "Victory at Sea",
-          brand: "Ballast Point",
-          description: "Best dark brew around!",
-          abv: "12%",
-          price: "$13.99",
-          pints: 124,
-          id: 5
-        },
-      ],
       selectedKeg: null,
       editing: false
     };
   }
   
   handleAddingNewKegToMenu = (newKeg) => {
-    const newMasterMenu = this.state.masterMenu.concat(newKeg);
-    this.setState({masterMenu: newMasterMenu});
+    const { dispatch } = this.props;
+    const { id, name, brand, description, abv, price, pints} = newKeg;
+    const action = {
+      type: 'ADD_KEG',
+      id: id,
+      name: name,
+      brand: brand,
+      description: description,
+      abv: abv,
+      price: price,
+      pints: pints,
+    }
+    dispatch(action);
     this.setState({formVisibleOnPage: false});
   }
 
@@ -98,16 +62,24 @@ class KegControl extends React.Component {
   }
 
   handleTappingKeg = (id) => {
-    const newMasterMenu = this.state.masterMenu[0].pints - 1;
+    const kegToTap = this.state.masterMenu.filter(keg => keg.id === id)[0];
+    const tappingKeg = kegToTap.pints - 1;
+    const tappedKeg = {...kegToTap, pints: tappingKeg};
+    const kegMenu = this.state.masterMenu.filter(keg => keg.id != id);
     this.setState({
-      masterMenu: newMasterMenu,
+      masterMenu: [...kegMenu, tappedKeg],
+      selectedKeg: tappedKeg
     });
   }
 
   handleFillingKeg = (id) => {
-    const newMasterMenu = this.state.masterMenu[0].pints + 1;
+    const kegToFill = this.state.masterMenu.filter(keg => keg.id === id)[0];
+    const fillingKeg = kegToFill.pints + 1;
+    const filledKeg = {...kegToFill, pints: fillingKeg};
+    const kegMenu = this.state.masterMenu.filter(keg => keg.id != id);
     this.setState({
-      masterMenu: newMasterMenu,
+      masterMenu: [...kegMenu, filledKeg],
+      selectedKeg: filledKeg
     });
   }
   
@@ -137,8 +109,8 @@ class KegControl extends React.Component {
     } else if (this.state.selectedKeg != null) {
         currentlyVisibleState = <KegDetail 
         keg = {this.state.selectedKeg}
-        // onClickingTap = {this.handleTappingKeg}
-        // onClickingFill = {this.handleFillingKeg} 
+        onClickingTap = {this.handleTappingKeg}
+        onClickingFill = {this.handleFillingKeg} 
         onClickingDelete = {this.handleDeletingKeg}
         onClickingEdit = {this.handleEditClick} />;
         buttonText = "Return to Menu";
