@@ -4,6 +4,7 @@ import NewKegForm from './NewKegForm';
 import EditKegForm from './EditKegForm';
 import Menu from './Menu';
 import { connect } from 'react-redux';
+import PropTypes from "prop-types";
 
 class KegControl extends React.Component {
 
@@ -145,6 +146,10 @@ class KegControl extends React.Component {
     );
   }
 }
+
+KegControl.propTypes = {
+  masterMenu: PropTypes.object
+};
 
 const mapStateToProps = state => {
   return {
