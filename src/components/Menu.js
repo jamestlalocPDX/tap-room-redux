@@ -7,8 +7,8 @@ function Menu(props){
   return (
     <React.Fragment>
       <hr/>
-      {props.menu.map((keg) =>
-      <Keg 
+      {Object.values(props.menu).map((keg) => {
+        return <Keg 
         whenKegClicked={props.onKegSelection}
         name={keg.name}
         brand={keg.brand}
@@ -17,7 +17,8 @@ function Menu(props){
         price={keg.price}
         pints={keg.pints}
         id={keg.id}
-        key={keg.id} />)}
+        key={keg.id} />
+      })}
     </React.Fragment>
   );
 }
