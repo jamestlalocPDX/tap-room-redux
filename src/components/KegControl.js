@@ -35,7 +35,7 @@ class KegControl extends React.Component {
   }
 
   handleChangingSelectedKeg = (id) => {
-    const selectedKeg = this.state.masterMenu.filter(keg => keg.id === id)[0];
+    const selectedKeg = this.props.masterMenu[id];
     this.setState({selectedKeg: selectedKeg});
   }
 
@@ -134,7 +134,7 @@ class KegControl extends React.Component {
         buttonText = "Return to Menu";
     } else {
         currentlyVisibleState = <Menu 
-        menu = {this.state.masterMenu} 
+        menu = {this.props.masterMenu} 
         onKegSelection = {this.handleChangingSelectedKeg} />;
         buttonText = "Add Keg!";
     }
